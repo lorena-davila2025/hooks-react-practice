@@ -1,29 +1,28 @@
 import { useEffect, useState } from 'react'
+import { fetchData } from '../utils/fetch'
 
-const useFetch = ({url}) => {
-    const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState('')
+const useFetch = ({url, method = 'GET', body = null}) => {
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState('')
 
     useEffect(() => {
-      fetch(url).then(res => {
-          if(!res.ok) {
-            throw new Error('Error fetching data')
-          }
-          // console.log('Fetching data...', res.json());
-          return res.json()
-        }).then(data => {
-          setUsers(data)
+      fetchData(
+        url,
+        method,
+        body,
+        (data) => {
           setLoading(false)
-        }).catch(err => {
-          console.log('no al hacking', err);
+          setData(data)
+        },
+        (err) => {
+          setLoading(false)
           setError(err.message)
-          setLoading(false)
         })
-    }, [url])
+    }, [])
 
   return {
-    users,
+    data,
     loading,
     error,
   }
