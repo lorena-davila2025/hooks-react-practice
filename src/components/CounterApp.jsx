@@ -13,9 +13,9 @@ const CounterApp = () => {
     <>
       <h1>Counter: </h1>
       <h4>{counter}</h4>
-      <button type="button" class="btn btn-primary" onClick={() => increment()}>+1</button>
-      <button type="button" class="btn btn-danger" onClick={() => reset()}>Reset</button>
-      <button type="button" class="btn btn-secondary" onClick={() => decrement(1, false)}>-1</button>
+      <button type="button" className="btn btn-primary" onClick={() => increment()}>+1</button>
+      <button type="button" className="btn btn-danger" onClick={() => reset()}>Reset</button>
+      <button type="button" className="btn btn-secondary" onClick={() => decrement(1, false)}>-1</button>
     </>
   )
 }
