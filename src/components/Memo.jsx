@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react'
 
-const MemoApp = () => {
+const Memo = () => {
   const [numList, setNumList] = useState([1, 2, 3, 4, 5])
   const [showCalculation, setShowCalculation] = useState(true)
 
@@ -34,4 +34,4 @@ const MemoApp = () => {
   )
 }
 
-export default MemoApp
+export default Memo

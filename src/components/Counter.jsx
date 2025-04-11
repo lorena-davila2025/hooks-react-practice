@@ -1,7 +1,7 @@
 import React from 'react'
 import useCounter from '../hooks/useCounter'
 
-const CounterApp = () => {
+const Counter = () => {
   const {
     counter,
     increment,
@@ -20,4 +20,4 @@ const CounterApp = () => {
   )
 }
 
-export default CounterApp
+export default Counter

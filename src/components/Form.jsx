@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import useForm from '../hooks/useForm'
 
-const FormApp = () => {
+const Form = () => {
 
   const { formState, handleInputChange, handleSubmit, handleReset } = useForm({
     initialState: {
@@ -59,4 +59,4 @@ const FormApp = () => {
   )
 }
 
-export default FormApp
+export default Form

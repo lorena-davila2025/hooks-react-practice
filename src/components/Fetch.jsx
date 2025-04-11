@@ -2,7 +2,7 @@ import React from 'react'
 import useFetch from '../hooks/useFetch'
 import DynamicBootstrapForm from './DynamicBoostrapForm'
 
-const FetchApp = () => {
+const Fetch = () => {
   const BASE_URL = 'http://jsonplaceholder.typicode.com/users'
 
   const { data, loading, error } = useFetch({url: BASE_URL})
@@ -62,4 +62,4 @@ const FetchApp = () => {
   )
 }
 
-export default FetchApp
+export default Fetch
