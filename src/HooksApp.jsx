@@ -5,6 +5,7 @@ import DifferenceRefVsState from './components/DifferenceRefVsState.jsx'
 import Memo from './components/Memo.jsx'
 import Fetch from './components/Fetch.jsx'
 import Callback from './components/Callback.jsx'
+import Reducer from './components/Reducer.jsx'
 
 const HooksApp = () => {
 
@@ -114,6 +115,18 @@ const HooksApp = () => {
           <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div className="accordion-body">
               <Callback />
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              UseReducer hook
+            </button>
+          </h2>
+          <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              <Reducer />
             </div>
           </div>
         </div>
