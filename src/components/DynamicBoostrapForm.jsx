@@ -22,8 +22,10 @@ const DynamicBootstrapForm = ({fields, url }) => {
           </div>
         ))
       }
-      <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e, url)}>Submit</button>
-      <button type="reset" className="btn btn-danger" onClick={handleReset}>Reset</button>
+      <div className='d-flex gap-2'>
+        <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e, url)}>Submit</button>
+        <button type="reset" className="btn btn-danger" onClick={handleReset}>Reset</button>
+      </div>
     </form>
   )
 }

@@ -20,13 +20,13 @@ const Memo = () => {
   return (
     <>
       <h2>Calculation</h2>
-      <h3>{numList.join(', ')}</h3>
+      <h3 className='mt-3'>{numList.join(', ')}</h3>
       {showCalculation && <h4>The result is: {result}</h4>}
-      <div className="d-flex gap-2">
-        <button className="button button-success" onClick={toggleCalculation}>
+      <div className="d-flex gap-2 mt-3">
+        <button className="btn btn-primary" onClick={toggleCalculation}>
           Toggle calculation
         </button>
-        <button className="button" onClick={handleAddNum}>
+        <button className="btn btn-success" onClick={handleAddNum}>
           Add a number
         </button>
       </div>

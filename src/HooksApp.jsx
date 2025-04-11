@@ -14,9 +14,9 @@ const HooksApp = () => {
 
     const handleAccordionClick = (event) => {
       // Find the accordion-collapse element within the same accordion-item
-      const accordionCollapse = event.target.closest('.accordion-item').querySelector('.accordion-collapse')
+      const accordionItem = event.target.closest('.accordion-item')
+      const accordionCollapse = accordionItem.querySelector('.accordion-collapse')
 
-      // Toggle the 'show' class for the clicked accordion-collapse
       accordionCollapse.classList.toggle('show')
 
       // Remove the 'show' class from all other accordion-collapse elements
@@ -25,6 +25,10 @@ const HooksApp = () => {
         if (item !== accordionCollapse) {
           item.classList.remove('show')
         }
+      })
+      window.scrollTo({
+        top: accordionItem.offsetTop,
+        behavior: 'smooth'
       })
     }
 
@@ -42,10 +46,10 @@ const HooksApp = () => {
   }, [])
 
   return (
-    <>
+    <div className="container py-5 m-auto">
       <h1>Hooks practice</h1>
 
-      <div className="accordion accordion-flush" id="accordionFlushExample">
+      <div className="accordion accordion-flush mt-5" id="accordionFlushExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -61,7 +65,7 @@ const HooksApp = () => {
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              Counter hook to understand the differences of useRef
+            Counter Hook: Exploring useRef Nuances
             </button>
           </h2>
           <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -131,7 +135,7 @@ const HooksApp = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -1,74 +1,102 @@
-import React from 'react'
+import React, { useReducer } from 'react'
+import useForm from '../hooks/useForm'
 
-const initialState = [
-  {
-    id: 1,
-    title: 'Task 1',
-    completed: false
-  },
-  {
-    id: 2,
-    title: 'Task 2',
-    completed: false
-  },
-  {
-    id: 3,
-    title: 'Task 3',
-    completed: false
-  }
+const INITIAL_STATE = [
+  { id: 1, title: 'Task 1', completed: false },
+  { id: 2, title: 'Task 2', completed: true },
 ]
 
-const newTask = {
-  id: 4,
-  title: 'Task 4',
-  completed: false
-}
+const tasksReducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case 'ADD_TASK':
+      return [...state, action.payload]
 
-const updatedTask = {
-  id: 4,
-  title: 'Task 4 completed',
-  completed: true
-}
+    case 'UPDATE_TASK':
+      return state.map(task =>
+        task.title === action.payload.title
+          ? { ...task, ...action.payload }
+          : task
+      )
 
-const addTask = {
-  type: 'ADD_TASK',
-  payload: newTask
-}
+    case 'COMPLETE_TASK':
+      return state.map(task =>
+        task.title === action.payload.title
+          ? { ...task, completed: !task.completed }
+          : task
+      )
 
-const updateTask = {
-  type: 'UPDATE_TASK',
-  payload: updatedTask
-}
+      case 'DELETE_TASK':
+      return state.filter(task =>
+        task.title !== action.payload.title
+      )
 
-const tasksReducer = (state = initialState, action) => {
-  if(action.type === 'ADD_TASK') {
-    return [...state, action.payload]
+      case 'DELETE_ALL':
+        return []
+
+    default:
+      return state
   }
-
-  if(action.type === 'UPDATE_TASK') {
-    const updatedTasks = state.map(task => {
-      if(task.id === action.payload.id) {
-        return {
-          ...task,
-          ...action.payload
-        }
-      }
-      return task
-    })
-    return updatedTasks
-  }
-
-  return state
 }
-
-const updatedState = tasksReducer(initialState, addTask)
-console.log('reducer 1', updatedState);
-console.log('reducer 2', tasksReducer(updatedState, updateTask));
 
 const Reducer = () => {
+  const [tasks, dispatch] = useReducer(tasksReducer, INITIAL_STATE)
+
+  const { formState, handleInputChange, handleReset } = useForm({ title: '', completed: false })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newTask = formState.title.trim()
+    if (newTask === '') {
+      alert('Task title cannot be empty!')
+      return
+    }
+    if (tasks.some(task => task.title === newTask)) {
+      alert('Task already exists. It cannot be duplicated')
+      handleReset()
+      return
+    }
+    dispatch({ type: 'ADD_TASK', payload: { ...formState, id: tasks.length + 1 } })
+  }
+
   return (
     <>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <label htmlFor="title" className="form-label">Task title</label>
+          <input
+            type="text"
+            name="title"
+            value={formState.title}
+            className="form-control"
+            id="title"
+            onChange={handleInputChange}
+          />
+          <div id="emailHelp" className="form-text">Enter a new task</div>
+        </div>
+        <div className='d-flex gap-2'>
+          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="button" className="btn btn-danger" onClick={() => dispatch({ type: 'DELETE_ALL' })
+          }>Delete all</button>
+        </div>
+      </form>
 
+      <ul className="list-group mt-5">
+        {tasks.map(task => (
+          <li className="list-group-item" key={task.id}>
+            <input
+              className="form-check-input me-1"
+              type="checkbox"
+              checked={task.completed}
+              onChange={() => dispatch({ type: 'COMPLETE_TASK', payload: task })}
+              id={`checkbox-${task.id}`}
+            />
+            <label className="form-check-label" htmlFor={`checkbox-${task.id}`}>
+              {task.title}
+            </label>
+            <button className='btn btn-danger btn-sm float-end' onClick={() => dispatch({ type: 'DELETE_TASK', payload: task })}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </>
   )
 }
