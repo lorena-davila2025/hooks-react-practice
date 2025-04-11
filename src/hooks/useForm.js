@@ -22,13 +22,9 @@ const useForm = ({initialState = {}}) => {
         const updatedUsers = JSON.parse(localStorage.getItem('users')) || []
         updatedUsers.push({...formState, ...data})
         localStorage.setItem('users', JSON.stringify(updatedUsers))
-        // setLoading(false)
-        // setData(data)
       },
       (err) => {
         console.log('❌', err);
-        // setLoading(false)
-        // setError(err.message)
       })
   }
 
