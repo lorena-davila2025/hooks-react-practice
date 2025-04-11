@@ -3,6 +3,7 @@ import CounterApp from './components/CounterApp.jsx'
 import FormApp from './components/FormApp.jsx'
 import FetchApp from './components/FetchApp.jsx'
 import DifferenceRefVsState from './components/DifferenceRefVsState.jsx'
+import MemoApp from './components/MemoApp.jsx'
 
 const HooksApp = () => {
 
@@ -88,6 +89,18 @@ const HooksApp = () => {
           <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div className="accordion-body">
               <FetchApp />
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              UseMemo hook
+            </button>
+          </h2>
+          <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              <MemoApp />
             </div>
           </div>
         </div>
