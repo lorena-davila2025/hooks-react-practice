@@ -11,7 +11,14 @@ const DynamicBootstrapForm = ({fields, url }) => {
         fields.map(field => (
           <div className="mb-3" key={field.name}>
             <label htmlFor={field.name} className="form-label">{field.label}</label>
-            <input type={field.type} name={field.name} value={formState[field.name]} className="form-control" id={field.name} onChange={handleInputChange}/>
+            <input
+              type={field.type}
+              name={field.name}
+              value={formState[field.name]}
+              className="form-control"
+              id={field.name}
+              onChange={handleInputChange}
+            />
           </div>
         ))
       }

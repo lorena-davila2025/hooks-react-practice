@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import CounterApp from './components/CounterApp.jsx'
 import FormApp from './components/FormApp.jsx'
 import FetchApp from './components/FetchApp.jsx'
+import DifferenceRefVsState from './components/DifferenceRefVsState.jsx'
 
 const HooksApp = () => {
 
@@ -51,6 +52,18 @@ const HooksApp = () => {
           <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
             <div className="accordion-body">
               <CounterApp />
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Counter hook to understand the differences of useRef
+            </button>
+          </h2>
+          <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              <DifferenceRefVsState />
             </div>
           </div>
         </div>

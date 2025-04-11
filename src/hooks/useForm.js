@@ -13,13 +13,15 @@ const useForm = ({initialState = {}}) => {
 
   const handleSubmit = (e, url) => {
     e.preventDefault()
-    console.log('🆗', formState)
     fetchData(
       url,
       'POST',
       formState,
       (data) => {
         console.log('✅', data);
+        const updatedUsers = JSON.parse(localStorage.getItem('users')) || []
+        updatedUsers.push({...formState, ...data})
+        localStorage.setItem('users', JSON.stringify(updatedUsers))
         // setLoading(false)
         // setData(data)
       },
