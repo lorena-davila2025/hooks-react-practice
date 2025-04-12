@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import Counter from './components/Counter.jsx'
-import Form from './components/Form.jsx'
-import DifferenceRefVsState from './components/DifferenceRefVsState.jsx'
-import Memo from './components/Memo.jsx'
-import Fetch from './components/Fetch.jsx'
-import Callback from './components/Callback.jsx'
-import Reducer from './components/Reducer.jsx'
-import Redux from './components/Redux.jsx'
+import Counter from '../components/Counter.jsx'
+import Form from '../components/Form.jsx'
+import DifferenceRefVsState from '../components/DifferenceRefVsState.jsx'
+import Memo from '../components/Memo.jsx'
+import Fetch from '../components/Fetch.jsx'
+import Callback from '../components/Callback.jsx'
+import Reducer from '../components/Reducer.jsx'
+import Redux from '../components/Redux.jsx'
 
-const HooksApp = () => {
+const HomeScreen = () => {
 
   useEffect(() => {
     const accordionBtnsList = document.querySelectorAll('.accordion-button')
@@ -152,4 +152,4 @@ const HooksApp = () => {
   )
 }
 
-export default HooksApp
+export default HomeScreen
