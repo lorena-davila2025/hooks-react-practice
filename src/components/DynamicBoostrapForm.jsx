@@ -6,7 +6,7 @@ const DynamicBootstrapForm = ({fields, url }) => {
   const { formState, handleInputChange, handleSubmit, handleReset } = useForm({})
 
   return (
-    <form>
+    <form onSubmit={(e) => handleSubmit(e, url)}>
       {
         fields.map(field => (
           <div className="mb-3" key={field.name}>
@@ -23,7 +23,7 @@ const DynamicBootstrapForm = ({fields, url }) => {
         ))
       }
       <div className='d-flex gap-2'>
-        <button type="submit" className="btn btn-primary" onClick={(e) => handleSubmit(e, url)}>Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
         <button type="reset" className="btn btn-danger" onClick={handleReset}>Reset</button>
       </div>
     </form>

@@ -135,7 +135,7 @@ const HomeScreen = () => {
             </div>
           </div>
         </div>
-        <div className="accordion-item">
+        {/* <div className="accordion-item">
           <h2 className="accordion-header">
             <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
               Redux
@@ -146,7 +146,7 @@ const HomeScreen = () => {
               <Redux />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

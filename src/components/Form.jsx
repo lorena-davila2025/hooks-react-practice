@@ -16,16 +16,16 @@ const Form = () => {
   const focusRef = useRef()
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
+        <label htmlFor="email" className="form-label">Email address</label>
         <input
           ref={focusRef}
           type="email"
           name="email"
           value={email}
           className="form-control"
-          id="exampleInputEmail1"
+          id="email"
           aria-describedby="emailHelp"
           onChange={handleInputChange}
           />
@@ -54,7 +54,7 @@ const Form = () => {
         <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
       </div>
       <div className="d-flex gap-2">
-          <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
           <button type="reset" className="btn btn-danger" onClick={handleReset}>Reset</button>
       </div>
     </form>
