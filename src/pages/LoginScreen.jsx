@@ -89,7 +89,7 @@ const LoginScreen = () => {
             value={email}
             className="form-control"
             id="email"
-            placeholder="phoebe@gmail.com"
+            placeholder="regina@gmail.com"
             aria-describedby="emailHelp"
             onChange={handleInputChange}
           />
