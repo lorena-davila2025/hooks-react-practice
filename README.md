@@ -1,12 +1,32 @@
-# React + Vite
+🧪 React + Vite Practice App
+A collection of small, focused components built to practice:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✅ React Hooks (useState, useEffect, useRef, useMemo, useCallback, useReducer)
 
-Currently, two official plugins are available:
+🔁 Custom Hooks
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 Context API
 
-## Expanding the ESLint configuration
+📦 Redux
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🌍 React Router
+
+🚀 Live Demos
+Redux Version
+👉 [react-hooks-practice-2025.netlify.app](https://react-hooks-practice-2025.netlify.app/login)
+
+Router + Context Version
+👉 [aesthetic-alfajores-e05a0c.netlify.app](https://aesthetic-alfajores-e05a0c.netlify.app/login)
+(Keeping the auto-generated domain, it’s just too good to be changed)
+
+🛠️ Built With
+React 18
+
+Vite
+
+Bootstrap 5 (via CDN)
+
+Netlify (for deployment)
+
+🤓 Purpose
+This project is meant for hands-on practice and experimentation with React fundamentals and intermediate patterns. It’s not a polished product—just a dev playground to solidify concepts.
