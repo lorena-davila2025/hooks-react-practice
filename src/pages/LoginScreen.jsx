@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import useForm from '../hooks/useForm'
 import { UserContext } from '../context/UserContext'
+import { useNavigate } from 'react-router'
 
 const LoginScreen = () => {
+  const navigate = useNavigate()
   const INITIAL_FORM = {
     name: '',
     technology: '',
@@ -22,6 +24,7 @@ const LoginScreen = () => {
     }
     setUser({ name, technology, email })
     handleReset()
+    navigate('/')
   }
 
   return (
