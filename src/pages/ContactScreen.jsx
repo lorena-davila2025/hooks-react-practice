@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 
 const ContactScreen = () => {
-  const { user, country, city } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
   return (
     <div className="container vh-100 vw-100 d-flex flex-column align-items-center">
@@ -15,11 +15,14 @@ const ContactScreen = () => {
         <div className="card-body text-center">
           <h5 className="card-title">Location</h5>
           <p className="card-text">
-            {city}, {country}
+            {user.city}, {user.country}
           </p>
           <h5 className="card-title">Technology</h5>
           <p className="card-text">{user.technology}</p>
-          <a href="#" className="btn btn-primary">
+          <a
+            href={`mailto:${user.email}`}
+            className="btn btn-primary"
+          >
             Let's Talk
           </a>
         </div>
