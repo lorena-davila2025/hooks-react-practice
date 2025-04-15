@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch'
 import DynamicBootstrapForm from './DynamicBoostrapForm'
 
 const Fetch = () => {
-  const BASE_URL = 'http://jsonplaceholder.typicode.com/users'
+  const BASE_URL = 'https://jsonplaceholder.typicode.com/users'
 
   const { data, loading, error } = useFetch({url: BASE_URL})
   const users = data
