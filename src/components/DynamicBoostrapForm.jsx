@@ -1,5 +1,6 @@
 import React from 'react'
 import useForm from '../hooks/useForm'
+import PropTypes from 'prop-types'
 
 const DynamicBootstrapForm = ({fields, url }) => {
 
@@ -28,6 +29,15 @@ const DynamicBootstrapForm = ({fields, url }) => {
       </div>
     </form>
   )
+}
+
+DynamicBootstrapForm.propTypes = {
+  fields: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
+  })).isRequired,
+  url: PropTypes.string.isRequired
 }
 
 export default DynamicBootstrapForm
