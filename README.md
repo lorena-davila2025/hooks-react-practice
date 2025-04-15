@@ -13,10 +13,10 @@ A collection of small, focused components built to practice:
 
 🚀 Live Demos
 Redux Version
-👉 [react-hooks-practice-2025.netlify.app](https://react-hooks-practice-2025.netlify.app/login)
+👉 [react-hooks-practice-2025.netlify.app](https://react-hooks-practice-2025.netlify.app/)
 
 Router + Context Version
-👉 [aesthetic-alfajores-e05a0c.netlify.app](https://aesthetic-alfajores-e05a0c.netlify.app/login)
+👉 [aesthetic-alfajores-e05a0c.netlify.app](https://aesthetic-alfajores-e05a0c.netlify.app/)
 (Keeping the auto-generated domain, it’s just too good to be changed)
 
 🛠️ Built With
