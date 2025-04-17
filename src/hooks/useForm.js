@@ -30,9 +30,11 @@ const useForm = ({initialState = {}}) => {
           errorCallback(err)
         }
       })
+
+    handleReset(() => { console.log('Form reset') })
   }
 
-  const handleReset = (resetCallback) => {
+  const handleReset = (resetCallback = function () {}) => {
     const newFormState = Object.keys(formState).reduce((acc, key) => {
       acc[key] = ''
       return acc
