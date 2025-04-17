@@ -18,7 +18,7 @@ const Fetch = () => {
     <>
       <DynamicBootstrapForm
         fields={FIELDS}
-        url={BASE_URL}
+        buildUrl={() => BASE_URL}
       />
       <div className='mt-5'>
         <h1>Users list</h1>

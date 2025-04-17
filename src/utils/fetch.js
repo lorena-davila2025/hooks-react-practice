@@ -2,17 +2,17 @@ export const fetchData = (url, method = 'GET', body = null, successCallback, err
   const options = { method: method, body: body ? JSON.stringify(body) : null}
   // ToDo: version that returns a promise
 
-      if(url) {
-        fetch(url, options).then(res => {
-          if(!res.ok) {
-            throw new Error('Error fetching data 🫣')
-          }
-          return res.json()
-        }).then(data => {
-          console.log('🆗', data)
-          successCallback(data)
-        }).catch(err => {
-          errorCallback(err)
-        })
+  if(url) {
+    fetch(url, options).then(res => {
+      if(!res.ok) {
+        throw new Error('Error fetching data 🫣')
       }
+      return res.json()
+    }).then(data => {
+      console.log('🆗', data)
+      successCallback(data)
+    }).catch(err => {
+      errorCallback(err)
+    })
   }
+}

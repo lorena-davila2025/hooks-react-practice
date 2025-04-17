@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
 import { fetchData } from '../utils/fetch'
+import { useLocalStorage } from 'usehooks-ts'
 
 const useFetch = ({url, method = 'GET', body = null}) => {
-  const [data, setData] = useState(() => {
-    if(localStorage.getItem('users')) {
-      return JSON.parse(localStorage.getItem('users'))
-    }
-    return []
-  })
+  const [data, setData] = useLocalStorage('localData', {})
+
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -19,7 +16,6 @@ const useFetch = ({url, method = 'GET', body = null}) => {
       (data) => {
         setLoading(false)
         setData(data)
-        localStorage.setItem('users', JSON.stringify(data))
       },
       (err) => {
         setLoading(false)
