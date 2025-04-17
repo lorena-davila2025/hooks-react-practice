@@ -8,33 +8,33 @@ export const INITIAL_STATE = [
 
 export const tasksReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ADD_TASK':
-      return [...state, action.payload]
+  case 'ADD_TASK':
+    return [...state, action.payload]
 
-    case 'UPDATE_TASK':
-      return state.map(task =>
-        task.title === action.payload.title
-          ? { ...task, ...action.payload }
-          : task
-      )
+  case 'UPDATE_TASK':
+    return state.map(task =>
+      task.title === action.payload.title
+        ? { ...task, ...action.payload }
+        : task
+    )
 
-    case 'COMPLETE_TASK':
-      return state.map(task =>
-        task.title === action.payload.title
-          ? { ...task, completed: !task.completed }
-          : task
-      )
+  case 'COMPLETE_TASK':
+    return state.map(task =>
+      task.title === action.payload.title
+        ? { ...task, completed: !task.completed }
+        : task
+    )
 
-      case 'DELETE_TASK':
-      return state.filter(task =>
-        task.title !== action.payload.title
-      )
+  case 'DELETE_TASK':
+    return state.filter(task =>
+      task.title !== action.payload.title
+    )
 
-      case 'DELETE_ALL':
-        return []
+  case 'DELETE_ALL':
+    return []
 
-    default:
-      return state
+  default:
+    return state
   }
 }
 

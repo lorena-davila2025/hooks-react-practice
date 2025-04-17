@@ -23,11 +23,13 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+
+      // Custom rules
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'indent': ['error', 2],
+      'quotes': ['error', 'single'],
+      'linebreak-style': ['error', 'unix'],
     },
   },
 ]
