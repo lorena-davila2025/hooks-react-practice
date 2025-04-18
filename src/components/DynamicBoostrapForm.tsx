@@ -12,7 +12,7 @@ type FormButtons = {
   resetCallback?: () => void
 }
 
-type FormState = Record<string, string> | {}
+type FormState = Record<string, string | boolean> | {}
 
 type Props = {
   fields: Field[]
