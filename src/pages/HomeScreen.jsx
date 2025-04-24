@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import Counter from './components/Counter.jsx'
-import Form from './components/Form.jsx'
-import DifferenceRefVsState from './components/DifferenceRefVsState.jsx'
-import Memo from './components/Memo.jsx'
-import Fetch from './components/Fetch.jsx'
-import Callback from './components/Callback.jsx'
-import Reducer from './components/Reducer.jsx'
+import Counter from '../components/Counter.jsx'
+import Form from '../components/Form.jsx'
+import DifferenceRefVsState from '../components/DifferenceRefVsState.jsx'
+import Memo from '../components/Memo.jsx'
+import Fetch from '../components/Fetch.jsx'
+import Callback from '../components/Callback.jsx'
+import Reducer from '../components/Reducer.jsx'
+import Redux from '../components/Redux.jsx'
 
-const HooksApp = () => {
+const HomeScreen = () => {
 
   useEffect(() => {
     const accordionBtnsList = document.querySelectorAll('.accordion-button')
@@ -134,9 +135,21 @@ const HooksApp = () => {
             </div>
           </div>
         </div>
+        {/* <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Redux
+            </button>
+          </h2>
+          <div id="flush-collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+            <div className="accordion-body">
+              <Redux />
+            </div>
+          </div>
+        </div> */}
       </div>
     </div>
   )
 }
 
-export default HooksApp
+export default HomeScreen

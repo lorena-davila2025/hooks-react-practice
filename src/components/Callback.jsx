@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react'
+import PropTypes from 'prop-types'
 
 const IncrementComponent = React.memo(({ increment }) => {
   console.log('IncrementComponent rendered only once')
@@ -12,6 +13,10 @@ const IncrementComponent = React.memo(({ increment }) => {
   )
 }
 )
+
+IncrementComponent.propTypes = {
+  increment: PropTypes.func.isRequired
+}
 
 const Callback = () => {
   const [counter, setCounter] = useState(0)

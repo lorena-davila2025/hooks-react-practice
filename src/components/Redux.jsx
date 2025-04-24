@@ -1,9 +1,10 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import useForm from '../hooks/useForm'
-import {tasksReducer, INITIAL_STATE} from '../redux/store'
+import { useDispatch, useSelector } from 'react-redux'
 
-const Reducer = () => {
-  const [tasks, dispatch] = useReducer(tasksReducer, INITIAL_STATE)
+const Redux = () => {
+  const tasks = useSelector(state => state)
+  const dispatch = useDispatch()
 
   const { formState, handleInputChange, handleReset } = useForm({ title: '', completed: false })
 
@@ -20,7 +21,6 @@ const Reducer = () => {
       return
     }
     dispatch({ type: 'ADD_TASK', payload: { ...formState, id: tasks.length + 1 } })
-    handleReset()
   }
 
   return (
@@ -52,13 +52,13 @@ const Reducer = () => {
               className="form-check-input me-1"
               type="checkbox"
               checked={task.completed}
-              onChange={() => dispatch({ type: 'COMPLETE_TASK', payload: { title: task.title } })}
+              onChange={() => dispatch({ type: 'COMPLETE_TASK', payload: task })}
               id={`checkbox-${task.id}`}
             />
             <label className="form-check-label" htmlFor={`checkbox-${task.id}`}>
               {task.title}
             </label>
-            <button className='btn btn-danger btn-sm float-end' onClick={() => dispatch({ type: 'DELETE_TASK', payload: { title: task.title } })}>Delete</button>
+            <button className='btn btn-danger btn-sm float-end' onClick={() => dispatch({ type: 'DELETE_TASK', payload: task })}>Delete</button>
           </li>
         ))}
       </ul>
@@ -66,4 +66,4 @@ const Reducer = () => {
   )
 }
 
-export default Reducer
+export default Redux
