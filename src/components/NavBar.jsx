@@ -13,55 +13,48 @@ const NavBar = () => {
         <NavLink className="navbar-brand" to="/">Navbar</NavLink>
         <button
           className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
+
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className={`navbar-nav ${isUserEmpty ? 'disabled' : ''}`}>
-            <li className="nav-item">
-              <NavLink
-                to="/"
-                className={`nav-link ${isUserEmpty ? 'disabled' : ''}`}
-                tabIndex={isUserEmpty ? -1 : 0}
-                onClick={(e) => isUserEmpty && e.preventDefault()}
-              >
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className={`navbar-nav ${isUserEmpty ? 'disabled' : ''}`}>
+            <NavLink
+              to="/"
+              className={`nav-link ${isUserEmpty ? 'disabled' : ''}`}
+              aria-current="page"
+              tabIndex={isUserEmpty ? -1 : 0}
+              onClick={(e) => isUserEmpty && e.preventDefault()}
+            >
                 Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/about"
-                className={`nav-link ${isUserEmpty ? 'disabled' : ''}`}
-                tabIndex={isUserEmpty ? -1 : 0}
-                onClick={(e) => isUserEmpty && e.preventDefault()}
-              >
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={`nav-link ${isUserEmpty ? 'disabled' : ''}`}
+              tabIndex={isUserEmpty ? -1 : 0}
+              onClick={(e) => isUserEmpty && e.preventDefault()}
+            >
                 About
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/contact"
-                className={`nav-link ${isUserEmpty ? 'disabled' : ''}`}
-                tabIndex={isUserEmpty ? -1 : 0}
-                onClick={(e) => isUserEmpty && e.preventDefault()}
-              >
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={`nav-link ${isUserEmpty ? 'disabled' : ''}`}
+              tabIndex={isUserEmpty ? -1 : 0}
+              onClick={(e) => isUserEmpty && e.preventDefault()}
+            >
                 Contact
-              </NavLink>
-            </li>
+            </NavLink>
             {!isUserEmpty && (
-              <li className="nav-item">
-                <button className="btn btn-link nav-link" onClick={() => setUser({})}>
+              <button className="btn btn-link nav-link" onClick={() => setUser({})}>
                   Logout
-                </button>
-              </li>
+              </button>
             )}
-          </ul>
+          </div>
         </div>
       </div>
     </nav>
